@@ -1,0 +1,28 @@
+@import "./mixins.scss";
+
+$color-light: #fff;
+$color-dark: #0a1121;
+$color-primary: #0cbef3;
+$color-secondary: #243350;
+$color-light: #3fcfb4;
+$color-success-dark: #28e7e7;
+$color-danger-light: #fd2a47;
+
+$main-font: "Lato", sans-serif;
+
+//sizes
+
+$base-unit: 1rem * 1.25;
+
+//fonts
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-bold: 700;
+
+//breakpoints
+
+$br-mobile: 360px;
+$br-tablet: 780px;
+$br-desktop: 992px;
+$br-xl-desktop: 1366px;
