@@ -47,6 +47,9 @@
       "eslint"
     ]
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "browserslist": {
     "production": [
       ">0.2%",

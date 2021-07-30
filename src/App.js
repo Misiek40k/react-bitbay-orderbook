@@ -1,11 +1,10 @@
 import { Fragment } from 'react';
+import Header from './components/layout/Header';
 
-function App() {
+export default function App() {
   return (
     <Fragment>
-
+      <Header/>
     </Fragment>
   );
 }
-
-export default App;
