@@ -1,0 +1,16 @@
+@import '/src/styles/variables.scss';
+
+.logo {
+  color: $color-light;
+  font-size: $base-unit * 1.2;
+  display: flex;
+  align-items: center;
+
+  @include max-media($br-tablet) {
+    justify-content: center;
+  }
+}
+
+.image {
+  height: $base-unit * 2.5;
+}
