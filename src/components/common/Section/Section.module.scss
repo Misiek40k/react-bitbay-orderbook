@@ -1,0 +1,8 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  margin: $base-unit * 3 0;
+  padding: $base-unit;
+  border-radius: $base-unit * 0.1;
+  background: $color-light;
+}

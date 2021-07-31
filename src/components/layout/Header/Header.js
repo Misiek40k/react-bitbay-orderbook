@@ -2,15 +2,13 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { settings } from 'data/dataStore';
 
 import Logo from 'components/common/Logo/Logo';
-import logoSrc from 'assets/logo.svg';
 
 import styles from './Header.module.scss';
 
-const Header = () =>{
-
+const Header = () => {
   const logoProps = {
-    src: logoSrc,
-    alt: settings.logoIconAlt,
+    src: settings.header.logoSrc,
+    alt: settings.header.logoAlt,
   };
 
   return (
@@ -18,7 +16,7 @@ const Header = () =>{
       <Grid>
         <Row>
           <Col xs>
-            <Logo {...logoProps}/>
+            <Logo {...logoProps} />
           </Col>
         </Row>
       </Grid>

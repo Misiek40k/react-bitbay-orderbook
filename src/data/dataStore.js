@@ -1,3 +1,11 @@
+import logoSrc from 'assets/logo.svg';
+
 export const settings = {
-  logoIconAlt: 'Bitbay Orderbook',
+  header:{
+    logoAlt: 'Bitbay Orderbook',
+    logoSrc: logoSrc,
+  },
+  contentContainer: {
+    title: 'Orderbook',
+  },
 };

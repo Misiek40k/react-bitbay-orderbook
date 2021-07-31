@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './Logo.module.scss';
 
 const Logo = ({ src, alt }) => (
-  <picture className={styles.logo}>
+  <h1 className={styles.component}>
     <img className={styles.image} src={src} alt={alt} />
-  </picture>
+  </h1>
 );
 
 Logo.propTypes = {
