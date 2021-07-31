@@ -1,8 +1,8 @@
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { settings } from '../../../data/dataStore';
+import { settings } from 'data/dataStore';
 
-import Logo from '../../common/Logo/Logo';
-import logoSrc from '../../../assets/logo.svg';
+import Logo from 'components/common/Logo/Logo';
+import logoSrc from 'assets/logo.svg';
 
 import styles from './Header.module.scss';
 

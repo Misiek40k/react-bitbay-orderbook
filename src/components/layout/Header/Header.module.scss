@@ -5,18 +5,3 @@
   padding: $base-unit * 0.9 0;
   color: $color-light;
 }
-
-.logo {
-  color: $color-light;
-  font-size: $base-unit * 1.2;
-  display: flex;
-  align-items: center;
-
-  @include max-media($br-tablet) {
-    justify-content: center;
-  }
-}
-
-.image {
-  height: $base-unit * 2.5;
-}
