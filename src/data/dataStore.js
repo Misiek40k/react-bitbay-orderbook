@@ -8,4 +8,9 @@ export const settings = {
   contentContainer: {
     title: 'Orderbook',
   },
+  list:{
+    tickerApiUrl: 'https://api.bitbay.net/rest/trading/ticker',
+    orderbookApiUrl: 'https://api.bitbay.net/rest/trading/orderbook/',
+    initialOrderbookPair: 'BTC-PLN',
+  },
 };

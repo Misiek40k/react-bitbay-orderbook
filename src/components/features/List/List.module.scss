@@ -1,0 +1,18 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  width: 100%;
+}
+
+.head {
+  padding: $base-unit $base-unit * 1.5;
+  background: $color-primary;
+  width: 100%;
+  color: $color-light;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

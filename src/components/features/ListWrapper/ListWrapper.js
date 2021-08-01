@@ -1,15 +1,54 @@
-// import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner';
+import List from '../List/List';
+import { settings } from 'data/dataStore';
 
-// import styles from './Logo.module.scss';
+import styles from './ListWrapper.module.scss';
 
-const List = () => (
-  <div >
-    list
-  </div>
-);
+const ListWrapper = () => {
+  let [orderbookList, setOrderbookList] = useState({});
+  // let [orderbookPair, setOrderbookPair] = useState(
+  //   `${settings.list.initialOrderbookPair}`,
+  // );
 
-List.propTypes = {
+  const isObjectEmpty = (object) => {
+    if (Object.keys(object).length !== 0) {
+      return false;
+    }
+    return true;
+  };
 
+  useEffect(() => {
+    let interval = setInterval(() => {
+      fetch(
+        `${settings.list.orderbookApiUrl}${settings.list.initialOrderbookPair}`,
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setOrderbookList(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={styles.component}>
+      {isObjectEmpty({ ...orderbookList }) ? (
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={0}
+        />
+      ) : (
+        <List listProps={orderbookList} />
+      )}
+    </div>
+  );
 };
 
-export default List;
+export default ListWrapper;
