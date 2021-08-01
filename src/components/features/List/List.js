@@ -15,8 +15,8 @@ const List = ({ orderBookList: { buy, sell }, ...currencyProps }) => (
 
 List.propTypes = {
   orderBookList: PropTypes.shape({
-    buy: PropTypes.array,
-    sell: PropTypes.array,
+    buy: PropTypes.array.isRequired,
+    sell: PropTypes.array.isRequired,
   }),
 };
 

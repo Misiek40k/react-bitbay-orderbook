@@ -7,7 +7,7 @@ const SectionTitle = ({ title }) => (
 );
 
 SectionTitle.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 export default SectionTitle;

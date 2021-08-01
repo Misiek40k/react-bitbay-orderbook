@@ -7,35 +7,55 @@ import { checkIfObjectEmpty } from 'utils/utils';
 import styles from './ListWrapper.module.scss';
 
 const ListWrapper = () => {
-  let [orderbookList, setOrderbookList] = useState({});
-  // let [orderbookPair, setOrderbookPair] = useState(
+  let [marketCodesArray, setMarketCodesArray] = useState([]);
+  let [orderbookListResponse, setOrderbookListResponse] = useState({});
+  // let [currentorderbookPair, setCurrentOrderbookPair] = useState(
   //   `${settings.list.initialOrderbookPair}`,
   // );
 
-  useEffect(() => {
+  const getCurrentMarkets = () => {
+    fetch(`${settings.list.tickerApiUrl}`)
+      .then((response) => response.json())
+      .then((data) => {
+        const marketCodesResponseArray = [];
+        for (let market in data.items) {
+          marketCodesResponseArray.push(market);
+        }
+        setMarketCodesArray(marketCodesResponseArray);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const setCurrentOrderbookListInterval = () => {
     let interval = setInterval(() => {
-      fetch(
-        `${settings.list.orderbookApiUrl}${settings.list.initialOrderbookPair}`,
-      )
+      fetch(settings.list.orderbookApiUrl + settings.list.initialOrderbookPair)
         .then((response) => response.json())
         .then((data) => {
-          setOrderbookList(data);
+          setOrderbookListResponse(data);
         })
         .catch((error) => {
           console.log(error);
         });
     }, 2000);
     return () => clearInterval(interval);
+  };
+
+  useEffect(() => {
+    getCurrentMarkets();
+    setCurrentOrderbookListInterval();
   }, []);
 
-  const currencyProps = {
+  const orderbookPairProps = {
     currency: 'PLN',
     crypto: 'BTC',
+    marketCodesArray,
   };
 
   return (
     <div className={styles.component}>
-      {checkIfObjectEmpty({ ...orderbookList }) ? (
+      {checkIfObjectEmpty({ ...orderbookListResponse }) ? (
         <div className={styles.loaderWrapper}>
           <Loader
             type="Puff"
@@ -46,7 +66,7 @@ const ListWrapper = () => {
           />
         </div>
       ) : (
-        <List orderBookList={orderbookList} {...currencyProps} />
+        <List orderBookList={orderbookListResponse} {...orderbookPairProps} />
       )}
     </div>
   );
