@@ -1,0 +1,11 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  padding: $base-unit $base-unit * 1.5;
+  background: $color-primary;
+  width: 100%;
+  color: $color-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
