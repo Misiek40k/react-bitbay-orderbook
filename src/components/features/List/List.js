@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import ListHead from '../ListHead/ListHead';
 import ListColumn from 'components/features/ListColumn/ListColumn';
 
-import { variants } from 'utils/utils';
+import { defaultAnimationVariants, defaultTransitionTime } from 'utils/utils';
 import { settings } from 'data/dataStore';
 
 import styles from './List.module.scss';
@@ -26,8 +26,8 @@ const List = ({
       className={styles.component}
       initial={settings.list.componentInitialState}
       animate={settings.list.componentAnimation}
-      variants={variants}
-      transition={{ duration: 1 }}
+      variants={defaultAnimationVariants}
+      transition={defaultTransitionTime}
     >
       <ListHead {...listHeadProps} />
       <div className={styles.list}>

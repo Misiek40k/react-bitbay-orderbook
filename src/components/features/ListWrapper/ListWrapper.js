@@ -35,7 +35,6 @@ const ListWrapper = () => {
 
   const setCurrentOrderbookListInterval = () => {
     return setInterval(() => {
-      console.log(settings.list.orderbookApiUrl + currentOrderbookPair);
       fetch(settings.list.orderbookApiUrl + currentOrderbookPair)
         .then((response) => response.json())
         .then((data) => {

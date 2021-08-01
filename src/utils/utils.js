@@ -28,7 +28,11 @@ export const getDateFromTimestamp = (timestamp) => {
   }).format(timestamp);
 };
 
-export const variants = {
+export const defaultAnimationVariants = {
   visible: { opacity: 1 },
   hidden: { opacity: 0 },
+};
+
+export const defaultTransitionTime = {
+  transition: 1,
 };
