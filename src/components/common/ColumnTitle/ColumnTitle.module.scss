@@ -1,0 +1,19 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  color: $color-dark;
+  font-size: $base-unit * 1.2;
+  font-weight: $fw-bold;
+  text-align: center;
+  margin: $base-unit * 0.5 0 $base-unit;
+  padding-bottom: $base-unit * 0.5;
+  border-bottom: $base-unit * 0.05 solid $color-border;
+}
+
+.bid {
+  color: $color-success;
+}
+
+.ask {
+  color: $color-danger;
+}

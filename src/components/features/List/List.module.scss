@@ -1,0 +1,17 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include max-media($br-tablet) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+}

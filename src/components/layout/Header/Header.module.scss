@@ -1,0 +1,7 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  background: $color-dark;
+  padding: $base-unit * 0.9 0;
+  color: $color-light;
+}

@@ -1,0 +1,11 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.loaderWrapper {
+  margin-top: $base-unit * 0.5;
+}

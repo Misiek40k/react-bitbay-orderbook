@@ -1,0 +1,10 @@
+@import '/src/styles/variables.scss';
+
+.component {
+  width: 50%;
+  border: $base-unit * 0.05 solid $color-border;
+
+  @include max-media($br-tablet) {
+    width: 100%;
+  }
+}
