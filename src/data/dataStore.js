@@ -12,5 +12,9 @@ export const settings = {
     tickerApiUrl: 'https://api.bitbay.net/rest/trading/ticker',
     orderbookApiUrl: 'https://api.bitbay.net/rest/trading/orderbook/',
     initialOrderbookPair: 'BTC-PLN',
+    headItemRate: 'RATE',
+    headItemTitle: 'head',
+    bidColumnTitle: 'bid',
+    askColumnTitle: 'ask',
   },
 };

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import List from '../List/List';
-import { settings } from 'data/dataStore';
+
 import { checkIfObjectEmpty } from 'utils/utils';
+import { settings } from 'data/dataStore';
 
 import styles from './ListWrapper.module.scss';
 

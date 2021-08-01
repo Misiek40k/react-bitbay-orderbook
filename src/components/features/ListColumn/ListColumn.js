@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import ListItem from '../../common/ListItem/ListItem';
 import ColumnTitle from '../../common/ColumnTitle/ColumnTitle';
+
 import { calculateCurrencyAmount } from 'utils/utils';
+import { settings } from 'data/dataStore';
 
 import styles from './ListColumn.module.scss';
 
@@ -10,10 +12,10 @@ const ListColumn = ({ title, items, crypto, currency }) => (
     <ColumnTitle title={title} />
     <div className={styles.items}>
       <ListItem
-        rate="RATE"
+        rate={settings.list.headItemRate}
         currencyAmount={currency}
         cryptoAmount={crypto}
-        title="head"
+        title={settings.list.headItemTitle}
       />
       {items &&
         items.map(({ ca, ra }, index) => {
