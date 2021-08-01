@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import List from '../List/List';
 
-import { checkIfObjectEmpty } from 'utils/utils';
+import {
+  checkIfObjectEmpty,
+  getCurrentCrypto,
+  getCurrentCurrency,
+} from 'utils/utils';
 import { settings } from 'data/dataStore';
 
 import styles from './ListWrapper.module.scss';
@@ -10,9 +14,9 @@ import styles from './ListWrapper.module.scss';
 const ListWrapper = () => {
   let [marketCodesArray, setMarketCodesArray] = useState([]);
   let [orderbookListResponse, setOrderbookListResponse] = useState({});
-  // let [currentorderbookPair, setCurrentOrderbookPair] = useState(
-  //   `${settings.list.initialOrderbookPair}`,
-  // );
+  let [currentOrderbookPair, setCurrentOrderbookPair] = useState(
+    `${settings.list.initialOrderbookPair}`,
+  );
 
   const getCurrentMarkets = () => {
     fetch(`${settings.list.tickerApiUrl}`)
@@ -20,7 +24,7 @@ const ListWrapper = () => {
       .then((data) => {
         const marketCodesResponseArray = [];
         for (let market in data.items) {
-          marketCodesResponseArray.push(market);
+          marketCodesResponseArray.push({ value: market, label: market });
         }
         setMarketCodesArray(marketCodesResponseArray);
       })
@@ -30,8 +34,9 @@ const ListWrapper = () => {
   };
 
   const setCurrentOrderbookListInterval = () => {
-    let interval = setInterval(() => {
-      fetch(settings.list.orderbookApiUrl + settings.list.initialOrderbookPair)
+    return setInterval(() => {
+      console.log(settings.list.orderbookApiUrl + currentOrderbookPair);
+      fetch(settings.list.orderbookApiUrl + currentOrderbookPair)
         .then((response) => response.json())
         .then((data) => {
           setOrderbookListResponse(data);
@@ -40,18 +45,19 @@ const ListWrapper = () => {
           console.log(error);
         });
     }, 2000);
-    return () => clearInterval(interval);
   };
 
   useEffect(() => {
     getCurrentMarkets();
-    setCurrentOrderbookListInterval();
-  }, []);
+    let interval = setCurrentOrderbookListInterval();
+    return () => clearInterval(interval);
+  }, [currentOrderbookPair]);
 
   const orderbookPairProps = {
-    currency: 'PLN',
-    crypto: 'BTC',
+    currency: getCurrentCurrency(`${currentOrderbookPair}`),
+    crypto: getCurrentCrypto(`${currentOrderbookPair}`),
     marketCodesArray,
+    setCurrentOrderbookPair,
   };
 
   return (

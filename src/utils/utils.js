@@ -10,12 +10,11 @@ export const checkIfObjectEmpty = (object) => {
 };
 
 export const getCurrentCurrency = (orderbookPair) => {
-  console.log(orderbookPair);
-  return orderbookPair.split('-')[0].join('');
+  return orderbookPair.split('-')[0];
 };
 
 export const getCurrentCrypto = (orderbookPair) => {
-  return orderbookPair.split('-')[1].join('');
+  return orderbookPair.split('-')[1];
 };
 
 export const getDateFromTimestamp = (timestamp) => {
