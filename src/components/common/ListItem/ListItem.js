@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './ListItem.module.scss';
 
 const ListItem = ({ rate, currencyAmount, cryptoAmount, title }) => (

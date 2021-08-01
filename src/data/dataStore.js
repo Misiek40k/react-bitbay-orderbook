@@ -16,5 +16,7 @@ export const settings = {
     headItemTitle: 'head',
     bidColumnTitle: 'bid',
     askColumnTitle: 'ask',
+    componentInitialState: 'hidden',
+    componentAnimation: 'visible',
   },
 };

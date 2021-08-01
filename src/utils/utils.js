@@ -27,3 +27,8 @@ export const getDateFromTimestamp = (timestamp) => {
     second: '2-digit',
   }).format(timestamp);
 };
+
+export const variants = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};

@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
+
 import ListHead from '../ListHead/ListHead';
 import ListColumn from 'components/features/ListColumn/ListColumn';
 
+import { variants } from 'utils/utils';
 import { settings } from 'data/dataStore';
 
 import styles from './List.module.scss';
@@ -12,7 +15,6 @@ const List = ({
   orderBookList: { buy, sell, timestamp },
   ...currencyProps
 }) => {
-
   const listHeadProps = {
     date: timestamp,
     marketCodesArray,
@@ -20,7 +22,13 @@ const List = ({
   };
 
   return (
-    <div className={styles.component}>
+    <motion.div
+      className={styles.component}
+      initial={settings.list.componentInitialState}
+      animate={settings.list.componentAnimation}
+      variants={variants}
+      transition={{ duration: 1 }}
+    >
       <ListHead {...listHeadProps} />
       <div className={styles.list}>
         <ListColumn
@@ -34,7 +42,7 @@ const List = ({
           {...currencyProps}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
