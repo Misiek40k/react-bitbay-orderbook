@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+## React Bitbay Orderbook App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Bitbay orderbook. Updates once per 2 seconds.  Uses  [BitBay API](https://docs.bitbay.net/v1.0.1-en/reference).
+
+### Live
+
+Open live on: [GH-Pages](https://misiek40k.github.io/react-bitbay-orderbook/).
+
+### `Reminder`
+
+Project uses node-sass in version 6. To run this project you need node version 15+.
+
 
 ## Available Scripts
 
