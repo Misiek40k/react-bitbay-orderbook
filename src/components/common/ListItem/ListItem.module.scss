@@ -1,5 +1,39 @@
 @import '/src/styles/variables.scss';
 
 .component {
+  margin: 0 $base-unit * 0.25 $base-unit * 0.5;
+  padding: $base-unit * 0.5 $base-unit;
+  background: $color-primary;
+  border-radius: $base-unit * 0.25;
+  color: $color-light;
+  border: 1px solid $color-border;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  @include max-media($br-tablet) {
+    text-align: center;
+  }
+}
+
+.bid {
+  background: $color-success;
+}
+
+.ask {
+  background: $color-danger;
+}
+
+.head {
+  background: $color-secondary;
+}
+
+.table {
   width: 100%;
+}
+
+.item {
+  width: 33.33%;
+  text-align: center;
+  font-size: $base-unit * 0.7;
 }

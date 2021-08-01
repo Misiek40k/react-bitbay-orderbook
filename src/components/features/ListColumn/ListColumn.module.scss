@@ -2,7 +2,9 @@
 
 .component {
   width: 50%;
-  border: 1px solid red;
-  border-top: none;
-  border-bottom: none;
+  border: $base-unit * 0.05 solid $color-border;
+
+  @include max-media($br-tablet) {
+    width: 100%;
+  }
 }

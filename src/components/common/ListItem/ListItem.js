@@ -1,18 +1,25 @@
 import PropTypes from 'prop-types';
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ca, co, pa, ra, sa}) => (
-  <div className={styles.component}>
-    {ca}, {co}, {pa}, {ra}, {sa}
+const ListItem = ({ rate, currencyAmount, cryptoAmount, title }) => (
+  <div className={[styles.component, styles[title]].join(' ')}>
+    <table className={styles.table}>
+      <tbody>
+        <tr>
+          <td className={styles.item}>{rate}</td>
+          <td className={styles.item}>{cryptoAmount}</td>
+          <td className={styles.item}>{currencyAmount}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 );
 
 ListItem.propTypes = {
-  ca: PropTypes.string,
-  co: PropTypes.number,
-  pa: PropTypes.string,
-  ra: PropTypes.string,
-  sa: PropTypes.string,
+  rate: PropTypes.string.isRequired,
+  cryptoAmount: PropTypes.string.isRequired,
+  currencyAmount: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default ListItem;

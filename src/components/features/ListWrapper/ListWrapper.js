@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import List from '../List/List';
 import { settings } from 'data/dataStore';
+import { checkIfObjectEmpty } from 'utils/utils';
 
 import styles from './ListWrapper.module.scss';
 
@@ -10,13 +11,6 @@ const ListWrapper = () => {
   // let [orderbookPair, setOrderbookPair] = useState(
   //   `${settings.list.initialOrderbookPair}`,
   // );
-
-  const isObjectEmpty = (object) => {
-    if (Object.keys(object).length !== 0) {
-      return false;
-    }
-    return true;
-  };
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -34,18 +28,25 @@ const ListWrapper = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const currencyProps = {
+    currency: 'PLN',
+    crypto: 'BTC',
+  };
+
   return (
     <div className={styles.component}>
-      {isObjectEmpty({ ...orderbookList }) ? (
-        <Loader
-          type="Puff"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={0}
-        />
+      {checkIfObjectEmpty({ ...orderbookList }) ? (
+        <div className={styles.loaderWrapper}>
+          <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={0}
+          />
+        </div>
       ) : (
-        <List listProps={orderbookList} />
+        <List orderBookList={orderbookList} {...currencyProps} />
       )}
     </div>
   );

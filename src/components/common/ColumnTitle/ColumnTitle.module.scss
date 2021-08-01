@@ -5,7 +5,15 @@
   font-size: $base-unit * 1.2;
   font-weight: $fw-bold;
   text-align: center;
-  margin: 0 0 $base-unit * 1.5;
+  margin: $base-unit * 0.5 0 $base-unit;
   padding-bottom: $base-unit * 0.5;
-  border-bottom: $base-unit* 0.05 solid $color-border;
+  border-bottom: $base-unit * 0.05 solid $color-border;
+}
+
+.bid {
+  color: $color-success;
+}
+
+.ask {
+  color: $color-danger;
 }

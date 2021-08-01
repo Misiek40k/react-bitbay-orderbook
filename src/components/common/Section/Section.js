@@ -9,7 +9,7 @@ const Section = ({ Content }) => (
 );
 
 Section.propTypes = {
-  Content: PropTypes.func,
+  Content: PropTypes.func.isRequired,
 };
 
 export default Section;
