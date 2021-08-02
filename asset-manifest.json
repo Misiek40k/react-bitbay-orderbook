@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-bitbay-orderbook/static/css/main.26bbd390.chunk.css",
+    "main.css": "/react-bitbay-orderbook/static/css/main.cdf44eca.chunk.css",
     "main.js": "/react-bitbay-orderbook/static/js/main.bb2a7012.chunk.js",
     "main.js.map": "/react-bitbay-orderbook/static/js/main.bb2a7012.chunk.js.map",
     "runtime-main.js": "/react-bitbay-orderbook/static/js/runtime-main.3f18e504.js",
@@ -12,7 +12,7 @@
     "static/js/3.5c73e6e8.chunk.js.map": "/react-bitbay-orderbook/static/js/3.5c73e6e8.chunk.js.map",
     "index.html": "/react-bitbay-orderbook/index.html",
     "static/css/2.4ee2f7a8.chunk.css.map": "/react-bitbay-orderbook/static/css/2.4ee2f7a8.chunk.css.map",
-    "static/css/main.26bbd390.chunk.css.map": "/react-bitbay-orderbook/static/css/main.26bbd390.chunk.css.map",
+    "static/css/main.cdf44eca.chunk.css.map": "/react-bitbay-orderbook/static/css/main.cdf44eca.chunk.css.map",
     "static/js/2.236d2cf7.chunk.js.LICENSE.txt": "/react-bitbay-orderbook/static/js/2.236d2cf7.chunk.js.LICENSE.txt",
     "static/media/logo.923c3e8e.svg": "/react-bitbay-orderbook/static/media/logo.923c3e8e.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.3f18e504.js",
     "static/css/2.4ee2f7a8.chunk.css",
     "static/js/2.236d2cf7.chunk.js",
-    "static/css/main.26bbd390.chunk.css",
+    "static/css/main.cdf44eca.chunk.css",
     "static/js/main.bb2a7012.chunk.js"
   ]
 }
