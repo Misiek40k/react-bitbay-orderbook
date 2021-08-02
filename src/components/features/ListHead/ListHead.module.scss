@@ -8,9 +8,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include max-media($br-mobile) {
+    flex-direction: column-reverse;
+  }
 }
 
 .selectWrapper {
   width: $base-unit * 10;
   color: $color-dark;
+  margin-right: $base-unit * 0.5;
+
+  @include max-media($br-mobile) {
+    margin-right: 0;
+    margin-top: $base-unit * 0.5;
+  }
 }
