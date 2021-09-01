@@ -3,7 +3,7 @@ import ListItem from '../../common/ListItem/ListItem';
 import ColumnTitle from '../../common/ColumnTitle/ColumnTitle';
 
 import { calculateCurrencyAmount } from 'utils/utils';
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
 
 import styles from './ListColumn.module.scss';
 
@@ -12,10 +12,10 @@ const ListColumn = ({ title, items, crypto, currency }) => (
     <ColumnTitle title={title} />
     <div className={styles.items}>
       <ListItem
-        rate={settings.list.headItemRate}
+        rate={data.list.headItemRate}
         currencyAmount={currency}
         cryptoAmount={crypto}
-        title={settings.list.headItemTitle}
+        title={data.list.headItemTitle}
       />
       {items &&
         items.map(({ ca, ra }, index) => {

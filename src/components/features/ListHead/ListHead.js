@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { motion } from 'framer-motion';
 
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
 import { getDateFromTimestamp, defaultTransitionTime } from 'utils/utils';
 
 import styles from './ListHead.module.scss';
@@ -10,7 +10,7 @@ import styles from './ListHead.module.scss';
 const ListHead = ({ date, marketCodesArray, setCurrentOrderbookPair }) => {
   const defaultSelectValue = () => {
     return marketCodesArray.filter(
-      (market) => market.value === settings.list.initialOrderbookPair,
+      (market) => market.value === data.list.initialOrderbookPair,
     );
   };
 
@@ -28,8 +28,8 @@ const ListHead = ({ date, marketCodesArray, setCurrentOrderbookPair }) => {
     <div className={styles.component}>
       <motion.div
         className={styles.selectWrapper}
-        initial={settings.list.componentInitialState}
-        animate={settings.list.componentAnimation}
+        initial={data.list.componentInitialState}
+        animate={data.list.componentAnimation}
         variants={selectAnimationVariants}
         transition={defaultTransitionTime}
       >
@@ -44,8 +44,8 @@ const ListHead = ({ date, marketCodesArray, setCurrentOrderbookPair }) => {
         )}
       </motion.div>
       <motion.div
-        initial={settings.list.componentInitialState}
-        animate={settings.list.componentAnimation}
+        initial={data.list.componentInitialState}
+        animate={data.list.componentAnimation}
         variants={timestampAnimationVariants}
         transition={defaultTransitionTime}
       >

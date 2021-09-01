@@ -7,7 +7,7 @@ import {
   getCurrentCrypto,
   getCurrentCurrency,
 } from 'utils/utils';
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
 
 import styles from './ListWrapper.module.scss';
 
@@ -15,11 +15,11 @@ const ListWrapper = () => {
   let [marketCodesArray, setMarketCodesArray] = useState([]);
   let [orderbookListResponse, setOrderbookListResponse] = useState({});
   let [currentOrderbookPair, setCurrentOrderbookPair] = useState(
-    `${settings.list.initialOrderbookPair}`,
+    `${data.list.initialOrderbookPair}`,
   );
 
   const getCurrentMarkets = () => {
-    fetch(`${settings.list.tickerApiUrl}`)
+    fetch(`${data.list.tickerApiUrl}`)
       .then((response) => response.json())
       .then((data) => {
         const marketCodesResponseArray = [];
@@ -35,7 +35,7 @@ const ListWrapper = () => {
 
   const setCurrentOrderbookListInterval = () => {
     return setInterval(() => {
-      fetch(settings.list.orderbookApiUrl + currentOrderbookPair)
+      fetch(data.list.orderbookApiUrl + currentOrderbookPair)
         .then((response) => response.json())
         .then((data) => {
           setOrderbookListResponse(data);

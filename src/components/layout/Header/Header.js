@@ -1,5 +1,5 @@
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
 
 import Logo from 'components/common/Logo/Logo';
 
@@ -7,8 +7,8 @@ import styles from './Header.module.scss';
 
 const Header = () => {
   const logoProps = {
-    src: settings.header.logoSrc,
-    alt: settings.header.logoAlt,
+    src: data.header.logoSrc,
+    alt: data.header.logoAlt,
   };
 
   return (

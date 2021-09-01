@@ -5,7 +5,7 @@ import ListHead from '../ListHead/ListHead';
 import ListColumn from 'components/features/ListColumn/ListColumn';
 
 import { defaultAnimationVariants, defaultTransitionTime } from 'utils/utils';
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
 
 import styles from './List.module.scss';
 
@@ -24,20 +24,20 @@ const List = ({
   return (
     <motion.div
       className={styles.component}
-      initial={settings.list.componentInitialState}
-      animate={settings.list.componentAnimation}
+      initial={data.list.componentInitialState}
+      animate={data.list.componentAnimation}
       variants={defaultAnimationVariants}
       transition={defaultTransitionTime}
     >
       <ListHead {...listHeadProps} />
       <div className={styles.list}>
         <ListColumn
-          title={settings.list.bidColumnTitle}
+          title={data.list.bidColumnTitle}
           items={buy}
           {...currencyProps}
         />
         <ListColumn
-          title={settings.list.askColumnTitle}
+          title={data.list.askColumnTitle}
           items={sell}
           {...currencyProps}
         />
