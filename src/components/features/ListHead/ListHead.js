@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { motion } from 'framer-motion';
-import useMarketCodesArray from 'hooks/useMarketCodesArray';
 
 import { data } from 'data/dataStore';
 import { getDateFromTimestamp, defaultTransitionTime } from 'utils/utils';
+import useMarketCodesArray from 'hooks/useMarketCodesArray';
 
 import styles from './ListHead.module.scss';
 

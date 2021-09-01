@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import List from '../List/List';
 
@@ -8,32 +7,14 @@ import {
   getCurrentCurrency,
 } from 'utils/utils';
 import { data } from 'data/dataStore';
+import useOrderBookList from 'hooks/useOrderBookList';
+import useCurrentOrderBookPair from 'hooks/useCurrentOrderBookPair';
 
 import styles from './ListWrapper.module.scss';
 
 const ListWrapper = () => {
-  let [orderbookListResponse, setOrderbookListResponse] = useState({});
-  let [currentOrderbookPair, setCurrentOrderbookPair] = useState(
-    `${data.list.initialOrderbookPair}`,
-  );
-
-  const setCurrentOrderbookListInterval = () => {
-    return setInterval(() => {
-      fetch(data.list.orderbookApiUrl + currentOrderbookPair)
-        .then((response) => response.json())
-        .then((data) => {
-          setOrderbookListResponse(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, 2000);
-  };
-
-  useEffect(() => {
-    let interval = setCurrentOrderbookListInterval();
-    return () => clearInterval(interval);
-  }, [currentOrderbookPair]);
+  const [currentOrderbookPair, setCurrentOrderbookPair] = useCurrentOrderBookPair(`${data.list.initialOrderbookPair}`);
+  const orderbookListResponse = useOrderBookList({}, currentOrderbookPair, currentOrderbookPair);
 
   const orderbookPairProps = {
     currency: getCurrentCurrency(`${currentOrderbookPair}`),
