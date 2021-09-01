@@ -12,26 +12,10 @@ import { data } from 'data/dataStore';
 import styles from './ListWrapper.module.scss';
 
 const ListWrapper = () => {
-  let [marketCodesArray, setMarketCodesArray] = useState([]);
   let [orderbookListResponse, setOrderbookListResponse] = useState({});
   let [currentOrderbookPair, setCurrentOrderbookPair] = useState(
     `${data.list.initialOrderbookPair}`,
   );
-
-  const getCurrentMarkets = () => {
-    fetch(`${data.list.tickerApiUrl}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const marketCodesResponseArray = [];
-        for (let market in data.items) {
-          marketCodesResponseArray.push({ value: market, label: market });
-        }
-        setMarketCodesArray(marketCodesResponseArray);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   const setCurrentOrderbookListInterval = () => {
     return setInterval(() => {
@@ -47,7 +31,6 @@ const ListWrapper = () => {
   };
 
   useEffect(() => {
-    getCurrentMarkets();
     let interval = setCurrentOrderbookListInterval();
     return () => clearInterval(interval);
   }, [currentOrderbookPair]);
@@ -55,7 +38,6 @@ const ListWrapper = () => {
   const orderbookPairProps = {
     currency: getCurrentCurrency(`${currentOrderbookPair}`),
     crypto: getCurrentCrypto(`${currentOrderbookPair}`),
-    marketCodesArray,
     setCurrentOrderbookPair,
   };
 

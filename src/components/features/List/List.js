@@ -11,13 +11,11 @@ import styles from './List.module.scss';
 
 const List = ({
   setCurrentOrderbookPair,
-  marketCodesArray,
   orderBookList: { buy, sell, timestamp },
   ...currencyProps
 }) => {
   const listHeadProps = {
     date: timestamp,
-    marketCodesArray,
     setCurrentOrderbookPair,
   };
 
@@ -48,7 +46,6 @@ const List = ({
 
 List.propTypes = {
   setCurrentOrderbookPair: PropTypes.func,
-  marketCodesArray: PropTypes.array,
   orderBookList: PropTypes.shape({
     buy: PropTypes.array.isRequired,
     sell: PropTypes.array.isRequired,

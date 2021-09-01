@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { motion } from 'framer-motion';
+import useMarketCodesArray from 'hooks/useMarketCodesArray';
 
 import { data } from 'data/dataStore';
 import { getDateFromTimestamp, defaultTransitionTime } from 'utils/utils';
 
 import styles from './ListHead.module.scss';
 
-const ListHead = ({ date, marketCodesArray, setCurrentOrderbookPair }) => {
+
+const ListHead = ({ date, setCurrentOrderbookPair }) => {
+  const marketCodesArray = useMarketCodesArray();
+
   const defaultSelectValue = () => {
     return marketCodesArray.filter(
       (market) => market.value === data.list.initialOrderbookPair,
@@ -33,7 +37,7 @@ const ListHead = ({ date, marketCodesArray, setCurrentOrderbookPair }) => {
         variants={selectAnimationVariants}
         transition={defaultTransitionTime}
       >
-        {marketCodesArray && (
+        {marketCodesArray?.length > 0 && (
           <Select
             options={marketCodesArray}
             defaultValue={defaultSelectValue()}
@@ -57,7 +61,6 @@ const ListHead = ({ date, marketCodesArray, setCurrentOrderbookPair }) => {
 
 ListHead.propTypes = {
   date: PropTypes.string,
-  marketCodesArray: PropTypes.array,
   setCurrentOrderbookPair: PropTypes.func,
 };
 
