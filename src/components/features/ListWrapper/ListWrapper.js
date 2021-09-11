@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import List from '../List/List';
 
@@ -7,55 +6,19 @@ import {
   getCurrentCrypto,
   getCurrentCurrency,
 } from 'utils/utils';
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
+import useOrderBookList from 'hooks/useOrderBookList';
+import useCurrentOrderBookPair from 'hooks/useCurrentOrderBookPair';
 
 import styles from './ListWrapper.module.scss';
 
 const ListWrapper = () => {
-  let [marketCodesArray, setMarketCodesArray] = useState([]);
-  let [orderbookListResponse, setOrderbookListResponse] = useState({});
-  let [currentOrderbookPair, setCurrentOrderbookPair] = useState(
-    `${settings.list.initialOrderbookPair}`,
-  );
-
-  const getCurrentMarkets = () => {
-    fetch(`${settings.list.tickerApiUrl}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const marketCodesResponseArray = [];
-        for (let market in data.items) {
-          marketCodesResponseArray.push({ value: market, label: market });
-        }
-        setMarketCodesArray(marketCodesResponseArray);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const setCurrentOrderbookListInterval = () => {
-    return setInterval(() => {
-      fetch(settings.list.orderbookApiUrl + currentOrderbookPair)
-        .then((response) => response.json())
-        .then((data) => {
-          setOrderbookListResponse(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, 2000);
-  };
-
-  useEffect(() => {
-    getCurrentMarkets();
-    let interval = setCurrentOrderbookListInterval();
-    return () => clearInterval(interval);
-  }, [currentOrderbookPair]);
+  const [currentOrderbookPair, setCurrentOrderbookPair] = useCurrentOrderBookPair(`${data.list.initialOrderbookPair}`);
+  const orderbookListResponse = useOrderBookList({}, currentOrderbookPair, currentOrderbookPair);
 
   const orderbookPairProps = {
     currency: getCurrentCurrency(`${currentOrderbookPair}`),
     crypto: getCurrentCrypto(`${currentOrderbookPair}`),
-    marketCodesArray,
     setCurrentOrderbookPair,
   };
 

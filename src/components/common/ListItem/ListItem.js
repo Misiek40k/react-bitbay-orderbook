@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ListItem.module.scss';
 
 const ListItem = ({ rate, currencyAmount, cryptoAmount, title }) => (
-  <div className={[styles.component, styles[title]].join(' ')}>
+  <div className={`${styles.component} ${styles[title]}`}>
     <table className={styles.table}>
       <tbody>
         <tr>

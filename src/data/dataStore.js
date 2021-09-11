@@ -1,6 +1,6 @@
 import logoSrc from 'assets/logo.svg';
 
-export const settings = {
+export const data = {
   header:{
     logoAlt: 'Bitbay Orderbook',
     logoSrc: logoSrc,

@@ -5,39 +5,37 @@ import ListHead from '../ListHead/ListHead';
 import ListColumn from 'components/features/ListColumn/ListColumn';
 
 import { defaultAnimationVariants, defaultTransitionTime } from 'utils/utils';
-import { settings } from 'data/dataStore';
+import { data } from 'data/dataStore';
 
 import styles from './List.module.scss';
 
 const List = ({
   setCurrentOrderbookPair,
-  marketCodesArray,
   orderBookList: { buy, sell, timestamp },
   ...currencyProps
 }) => {
   const listHeadProps = {
     date: timestamp,
-    marketCodesArray,
     setCurrentOrderbookPair,
   };
 
   return (
     <motion.div
       className={styles.component}
-      initial={settings.list.componentInitialState}
-      animate={settings.list.componentAnimation}
+      initial={data.list.componentInitialState}
+      animate={data.list.componentAnimation}
       variants={defaultAnimationVariants}
       transition={defaultTransitionTime}
     >
       <ListHead {...listHeadProps} />
       <div className={styles.list}>
         <ListColumn
-          title={settings.list.bidColumnTitle}
+          title={data.list.bidColumnTitle}
           items={buy}
           {...currencyProps}
         />
         <ListColumn
-          title={settings.list.askColumnTitle}
+          title={data.list.askColumnTitle}
           items={sell}
           {...currencyProps}
         />
@@ -48,7 +46,6 @@ const List = ({
 
 List.propTypes = {
   setCurrentOrderbookPair: PropTypes.func,
-  marketCodesArray: PropTypes.array,
   orderBookList: PropTypes.shape({
     buy: PropTypes.array.isRequired,
     sell: PropTypes.array.isRequired,
