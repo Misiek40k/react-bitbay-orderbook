@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import styles from './ColumnTitle.module.scss';
 
-interface Props {
+type Props = {
   title: string;
 }
 

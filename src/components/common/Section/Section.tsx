@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import styles from './Section.module.scss';
 
-interface Props {
+type Props = {
   Content: FunctionComponent
 }
 

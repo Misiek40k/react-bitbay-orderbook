@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import styles from './Logo.module.scss';
 
-interface Props {
+type Props = {
   src: string,
   alt: string,
 }

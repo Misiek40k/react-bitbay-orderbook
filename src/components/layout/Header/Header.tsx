@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { data } from 'data/dataStore';
 
@@ -5,12 +6,12 @@ import Logo from 'components/common/Logo/Logo';
 
 import styles from './Header.module.scss';
 
-interface LogoProps {
+type LogoProps = {
   src: string,
   alt: string
 }
 
-const Header = () => {
+const Header: FunctionComponent = () => {
   const logoProps: LogoProps = {
     src: data.header.logoSrc,
     alt: data.header.logoAlt,

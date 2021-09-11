@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import styles from './ListItem.module.scss';
 
-interface Props {
+type Props = {
   rate: string,
   cryptoAmount: string,
   currencyAmount: string,
