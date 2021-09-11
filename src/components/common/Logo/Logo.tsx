@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import { FunctionComponent } from 'react';
 
 import styles from './Logo.module.scss';
 
-const Logo = ({ src, alt }) => (
+interface Props {
+  src: string,
+  alt: string,
+}
+
+const Logo: FunctionComponent<Props> = ({ src, alt }) => (
   <h1 className={styles.component}>
     <img className={styles.image} src={src} alt={alt} />
   </h1>
 );
-
-Logo.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-};
 
 export default Logo;

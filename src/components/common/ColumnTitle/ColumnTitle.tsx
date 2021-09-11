@@ -1,13 +1,12 @@
-import PropTypes from 'prop-types';
-
+import { FunctionComponent } from 'react';
 import styles from './ColumnTitle.module.scss';
 
-const SectionTitle = ({ title }) => (
+interface Props {
+  title: string;
+}
+
+const SectionTitle: FunctionComponent<Props> = ({ title }) => (
   <h2 className={`${styles.component} ${styles[title]}`}>{title}</h2>
 );
-
-SectionTitle.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default SectionTitle;

@@ -35,6 +35,7 @@
     "linebreak-style": [
       "off"
     ],
+    "react/prop-types": 0,
     "quotes": [
       "error",
       "single",

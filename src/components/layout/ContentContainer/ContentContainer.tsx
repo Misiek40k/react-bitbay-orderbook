@@ -1,9 +1,10 @@
+import { FunctionComponent } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import Section from 'components/common/Section/Section';
 import ListWrapper from 'components/features/ListWrapper/ListWrapper';
 
-const ContentContainer = () => {
+const ContentContainer: FunctionComponent = () => {
   return (
     <main>
       <Grid>

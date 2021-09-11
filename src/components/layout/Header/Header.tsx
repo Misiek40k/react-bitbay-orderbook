@@ -5,8 +5,13 @@ import Logo from 'components/common/Logo/Logo';
 
 import styles from './Header.module.scss';
 
+interface LogoProps {
+  src: string,
+  alt: string
+}
+
 const Header = () => {
-  const logoProps = {
+  const logoProps: LogoProps = {
     src: data.header.logoSrc,
     alt: data.header.logoAlt,
   };

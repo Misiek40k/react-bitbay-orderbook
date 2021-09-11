@@ -1,8 +1,15 @@
-import PropTypes from 'prop-types';
+import { FunctionComponent } from 'react';
 
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ rate, currencyAmount, cryptoAmount, title }) => (
+interface Props {
+  rate: string,
+  cryptoAmount: string,
+  currencyAmount: string,
+  title: string
+}
+
+const ListItem: FunctionComponent<Props> = ({ rate, currencyAmount, cryptoAmount, title }) => (
   <div className={`${styles.component} ${styles[title]}`}>
     <table className={styles.table}>
       <tbody>
@@ -15,12 +22,5 @@ const ListItem = ({ rate, currencyAmount, cryptoAmount, title }) => (
     </table>
   </div>
 );
-
-ListItem.propTypes = {
-  rate: PropTypes.string.isRequired,
-  cryptoAmount: PropTypes.string.isRequired,
-  currencyAmount: PropTypes.string.isRequired,
-  title: PropTypes.string,
-};
 
 export default ListItem;
